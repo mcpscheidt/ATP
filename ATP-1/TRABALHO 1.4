@@ -1,0 +1,42 @@
+//exercicio 4
+//Matheus Chiosini Pscheidt
+
+#include <stdio.h>
+
+int verificar(char palavra[30], char busca [30]){
+    int a;
+    for (int i = 0; palavra[i]!='\0' && palavra[i] != '\n'; i++){
+        a = 0;
+       while (busca[a] != '\0' && palavra[i+a] == busca[a]){
+           a++;  
+       }
+           if (busca[a] == '\0'){
+               return 1;
+           }    
+        
+    }
+    return 0; 
+} 
+
+
+
+int main()
+{
+    char palavra [30], busca [30];
+    
+    printf("Digite uma palavra: ");
+    fgets(palavra, 30, stdin);
+    
+    printf("Palavra de busca: ");
+    scanf("%s", &busca);
+    getchar();
+    
+    if(verificar(palavra, busca) == 1){
+         printf("Palavra de Busca esta na String\n");
+    } else {
+        printf("Palavra de Busca nao esta na String\n");
+    }
+    
+
+    return 0;
+}
