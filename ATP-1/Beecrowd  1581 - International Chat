@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int N, i, K, j;
+    char S[21], string[21], string2[21];
+
+    scanf("%d", &N);
+
+    for (i = 0; i < N; i++) {
+        scanf("%d", &K);
+        scanf("%s", string);
+        strcpy(S, string);  // inicializa com a primeira linguagem
+
+        for (j = 1; j < K; j++) {
+            scanf("%s", string2);
+
+            if (strcmp(string2, string) != 0) {
+                strcpy(S, "ingles");
+            }
+        }
+
+        printf("%s\n", S);
+    }
+
+    return 0;
+}
