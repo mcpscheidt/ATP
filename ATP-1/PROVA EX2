@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+
+    char string[30], aux[30], aux2[30];
+
+    fgets(string, 30, stdin);
+    int j = 0, a =0;
+
+    for (int i = 0; i < strlen(string); i++){
+        if (string[i] == 'a' ||string[i] == 'e' ||string[i] == 'i' ||string[i] == 'o' ||string[i] == 'u' ){
+
+            aux[j] = string[i];
+            j++;
+
+        }else{
+
+            aux2[a] = string[i];
+            a++;
+        }
+
+
+    }
+    aux[j] = '\0';
+    aux2[a] = '\0';
+       printf("vogais %s\nconsoantes %s", aux, aux2);
+    return 0;
+}
