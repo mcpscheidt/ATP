@@ -1,0 +1,33 @@
+
+
+
+int main(){
+
+    char string[80], string2[80];
+    int aux = 1;
+    fgets(string, 80, stdin);
+
+    fgets(string2, 80, stdin);
+
+    for (int i = 0; string[i] != '\0'; i++){
+            if(string[i] == '\n'){
+                string[i] = '\0';
+            }
+            if(string2[i] == '\n'){
+                string2[i] = '\0';
+            }
+        if(string[i] != string2[i]){
+            aux = 0;
+            break;
+
+        }
+    }
+        if(aux == 0){
+            printf("Nao sao iguais");
+        }else{
+            printf("Sao iguais");
+        }
+
+
+    return 0;
+}
