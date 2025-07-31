@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int nota(int nquestoes){
+
+    int total = 0;
+    int valor = 0;
+    for (int i = 1; i <= nquestoes; i++ ){
+        scanf("%d", &valor);
+        total += valor;
+
+    }
+
+    return total;
+}
+ int main(){
+    int n_questoes;
+
+    scanf("%d", &n_questoes);
+
+    printf("nota final %d", nota(n_questoes));
+    return 0;
+ }
