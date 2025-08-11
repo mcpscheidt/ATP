@@ -4,7 +4,7 @@
 
 
 int *encontrar_valores(int *array){
-    int* resultado = (int*)malloc(2 * sizeof(int));
+    int* resultado = malloc(2 * sizeof(int));
     int menor = array[0];
     int maior = array[0];
         for (int i = 1; i<10; i++){
