@@ -4,31 +4,37 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdbool.h>
-#define string_size 20
-#define qtd_strings 3
 
-int main(){
-char matriz_strings[qtd_strings][string_size];
-char *ptr[qtd_strings];
-char *aux[qtd_strings];
-    for(int i = 0; i < qtd_strings; i++){
-        ptr[i] = matriz_strings[i];
-    };
-    for(int i = 0; i < qtd_strings; i++){
-        printf("Digite a string na linha %d da matriz: \n", i);
-        scanf("%s", ptr[i]);
+#define NUM_STRINGS 3
+#define BUFFER_SIZE 256
 
-    };
-    for (int i = 0; i < qtd_strings - 1; i++) {
-        for (int j = 0; j < qtd_strings - 1 - i; j++) {
-            if (strcmp(ptr[j], ptr[j+1]) > 0) {
+int main() {
+    char *array[NUM_STRINGS];
+    char buffer[BUFFER_SIZE];
+
+    for (int i = 0; i < NUM_STRINGS; i++) {
+        fgets(buffer, BUFFER_SIZE, stdin);
+        buffer[strcspn(buffer, "\n")] = '\0';
+
+        array[i] = (char *)malloc(strlen(buffer) + 1);
+        strcpy(array[i], buffer);
+    }
+
+    for (int i = 0; i < NUM_STRINGS - 1; i++) {
+        for (int j = i + 1; j < NUM_STRINGS; j++) {
+            if (strcmp(array[i], array[j]) > 0) {
+                char *temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
     }
-    for(int i = 0; i < qtd_strings; i++){
-        printf("A string armazenada na linha %d da matriz eh %s \n", i, *(ptr+i));
-    };
 
+    printf("\nStrings em ordem alfabética:\n");
+    for (int i = 0; i < NUM_STRINGS; i++) {
+        printf("%s\n", array[i]);
+         free(array[i]);
+    }
 
-return 0;
+    return 0;
 }
