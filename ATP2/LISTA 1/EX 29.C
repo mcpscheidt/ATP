@@ -5,24 +5,31 @@
 #include <stdio.h>
 #include <stdbool.h>
 #define string_size 20
-#define qtd_strings 5
+#define array_size 5
+#define buffer_size 50
+
 
 int main(){
-char matriz_strings[qtd_strings][string_size];
-char *ptr[qtd_strings];
 
-    for(int i = 0; i < qtd_strings; i++){
-        ptr[i] = matriz_strings[i];
-    };
-    for(int i = 0; i < qtd_strings; i++){
-        printf("Digite a string na linha %d da matriz: \n", i);
-        scanf("%s", ptr[i]);
+char *array[array_size];
+char string[buffer_size];
 
-    };
-    for(int i = 0; i < qtd_strings; i++){
-        printf("A string armazenada na linha %d da matriz eh %s \n", i, *(ptr+i));
-    };
+    for(int i = 0; i < array_size; i++){
 
+        fgets(string, buffer_size, stdin);
+        array[i] = malloc(strlen(string));
+            for (int z = 0; z < strlen(string); z++){
+                if (string[z] == '\n')
+                    string[z] = '\0';
+            }
+        strcpy(array[i], string);
+    }
+
+    printf("%s %s %s %s %s", array[0], array[1], array[2], array[3], array[4]);
+
+    for (int i = 0; i < array_size; i++){
+        free(array[i]);
+    }
 
 return 0;
 }
