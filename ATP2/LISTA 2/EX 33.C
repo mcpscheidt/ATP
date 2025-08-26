@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 
-#define L 3
-#define C 3
+#define L 5
+#define C 5
 
 int main() {
 int matriz[L][C];
