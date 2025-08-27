@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <time.h>
 
 #define linha_1 2
 #define CL 3
@@ -14,13 +13,6 @@ int main() {
 int matriz[linha_1][CL] = {{1, 0, 2}, {0, 3, 1}};
 int matriz_2[CL][coluna_2] = {{1, 1, 0, 2}, {2, 0, 1, 1}, {0, 3, 2, 0}};
 int resultante[2][4];
-
-
-//for(int i = 0; i < L; i++){
-//    for(int j = 0; j < C; j++){
-//        matriz[i][j] = rand()%101;
-//    }
-//}
 
 printf("Matriz A: \n");
 for(int i = 0; i < linha_1; i++){
