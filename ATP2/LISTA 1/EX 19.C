@@ -1,5 +1,6 @@
 #include <stdio.h>
 #define array_size 8
+
 float media_elementos(int *nums){
     float  soma = 0;
     for(int i = 0; i < array_size; i++){
