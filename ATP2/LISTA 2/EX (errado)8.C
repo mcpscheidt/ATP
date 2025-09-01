@@ -2,46 +2,34 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
-#define linhas 3
-#define colunas 3
+#define DIM 4
 
 int main() {
-int matriz[linhas][colunas] = { {1, 1, 1}, {4, 2, 1}, {1, 1, 1}};
-int matriz_secundaria[linhas][colunas];
+int matriz[DIM][DIM]= {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12, 13}};
+int matriz_2[DIM][DIM];
 
-for( int i = 0; i < colunas; i++){
-    for(int z = 0 ; z < linhas; z++){
-       matriz_secundaria[i][z] = matriz[z][i];
-
-       }
-    }
-for (int i = 0; i < linhas; i++)
-    {
-        for (int j = 0; j < colunas; j++)
+printf("Matriz A: \n");
+for(int i = 0; i < DIM; i++){
+        for(int j = 0; j < DIM; j++)
         {
-            printf("%d ", matriz[i][j]);
+            printf("%3d ", matriz[i][j]);
         }
-
         printf("\n");
-    }
-
-
-printf("------------------  \n");
-
-
-for (int i = 0; i < linhas; i++)
-    {
-        for (int j = 0; j < colunas; j++)
-        {
-            printf("%d ", matriz_secundaria[i][j]);
-        }
-
-        printf("\n");
-    }
-
-
-
-return 0;
 }
 
+for (int i = 0; i < DIM; i++){
+    for (int z = 0; z < DIM; z++){
+        matriz_2[z][DIM -1 -i] = matriz[i][z];
+        }
+    }
+
+printf("Matriz A rotacionada no sentido horario: \n");
+for(int i = 0; i < DIM; i++){
+        for(int j = 0; j < DIM; j++)
+        {
+            printf("%3d ", matriz_2[i][j]);
+        }
+        printf("\n");
+}
+return 0;
+}
