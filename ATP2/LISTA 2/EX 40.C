@@ -18,7 +18,6 @@ for(int i = 0; i < L; i++){
         printf("\n");
 }
 
-int j = C -1;
 for (int i = 0; i < C; i++){
     for (int z = 0; z < L; z++){
         matriz_2[z][L -1 -i] = matriz[i][z];
